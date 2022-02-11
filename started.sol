@@ -10,23 +10,16 @@ contract started{
 	unit a;
 
 	uint constant MS_IN_SEC = 1000; // stała
-
 	uint power = a ** 3; // sześcian z a 											
-
 	uint left a << 2; // przesunięcie binarne 
-
 
 	function getValue() public returns(uint) {
 		return val;
 	}
 
-	function setValue(uint newVal, string newMsg) public {
-;
-	}
-
+	function setValue(uint newVal, string newMsg) public {;}
 
 	// FUNKCJA ZWRCAJĄCA DWIE WARTOŚCI
-
 	function getValuesFirstWay(uint a) returns (uint b, uint c) { // nazwy wypów zwracanych są opcjonalne
 		return (a, a+1);
 	}
@@ -37,7 +30,6 @@ contract started{
 	}
 
 	// MODYFIKATORY DOSTĘPU 
-
 	function onlyFromOutside() external {;} // metoda może zoatać wykonana tylko z zewnątrz
 	function accessibleFromAnywhere() public {;}
 
@@ -47,7 +39,6 @@ contract started{
 	function accessibleInternaly() internal {;}
 
 	//POLA
-
  	uint public value; // tylko do odczytu z zewnąt (do modyfikacji trzeba urzyć setValue() )
 	 uint internal value;
 	 uint private value;
@@ -63,9 +54,7 @@ contract started{
 		return a + b;
 	}
 
-
 	// ZABEZPIECZENIA
-
 	require(optionPos < optionCount); // if(false) wykonanie transakcji zostanie zatrzymane, a zmiany zostaną wycofane 
 	require(optionPos < optionCount, "Invalid option"); // a gass zostanie wrócony
 
@@ -86,16 +75,13 @@ contract started{
 		msg.gass; // pozostały gass dla tej transakcji (przestarzałe)
 
 		// MAPPING
-
 		//mapping ([key-type] => [value-type]) mapName;
-
 		mapping (address => bool) hasVoted;
 
 		mapping (string => uint) scoreFor;
 		scoreFor["Adam"] = 1; // map.put("Adam", 1);
 
 		uint userScore = scoreFor["Adam"]; // int userScore = map.get("Adam"), int userScore = map.get("Adam")
-
 		uint userScore = scoreFor["non-existing-user"]; //0
 
 		// WARTOŚCI DOMYŚLNE
@@ -116,7 +102,6 @@ contract started{
 	if(keccak256(str1) == keccak256(str2)) { succesful}
 
 	//STRUKTURY
-
 	struct User {
 		string name;
 		string surname;
@@ -124,14 +109,12 @@ contract started{
 	}
 
 	User user = User("John", "Doe", 35);
-
 	User user = User({name: "John",surname: "Doe", age: 35});
 
 	uint age = user.age;
 	user.age = 26;
 
 	// TYPY PAMIĘCI
-
 	uint[] memory memoryArr = array;
 	memoryArr[0] = 0; // modyfiles a copy;
 
@@ -139,9 +122,7 @@ contract started{
 	storageArr[0] = 0; // MOdyfiels an orginal
 
 // WYSYŁANIE płatnych kontraktów 
-
 	// Called when ether is sent without a method
-
 	function buyGadgets(uint gaddetsNum) payable {
 
 			//check send amount
@@ -161,8 +142,7 @@ contract started{
 			 addr.transfer(1000); // weis not ether
 			 // Returns "false" if fails
 			 bool succeeses = addr.send(1000);
-			 // Should check return value!
-			 
+			 // Should check return value!	 
 		}
 	}
 
@@ -174,13 +154,10 @@ contract started{
 
 		event nazwaEventu(string _message, address _user); // wywoładnie eventów nas nic nie kosztuje
 
-
 	function usingMofifier(newVerb) public isOwner returns(string) {
 
 		verb = newVal;
-
 		emit nazwaEventu("Adres użytkownika to ", msg.sender);
-
 		return verb;
 	}
 
@@ -198,9 +175,7 @@ contract Foo {
 
 		 uint oneSecond = 1 seconds;
 		 uint oneHour = 60 minutes;
-		 uint oneWeek = 7 days;
-
-		 
+		 uint oneWeek = 7 days; 
 	}
 
 	function method() {
@@ -218,7 +193,7 @@ contract Foo {
 
 	}
 
-			uint v1 = 10 wei	
+		uint v1 = 10 wei	
 		uint v2 = finney;
 		uint v3 = ether;
 
@@ -237,6 +212,6 @@ contract ExampleOfEnum {
 	}
 
 	AuctionState currentState = AuctionState.Ongoing;
-
+	
 	require(currentState != AuctionState.Finished);
 }
